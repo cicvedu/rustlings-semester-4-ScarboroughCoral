@@ -44,6 +44,12 @@ impl Default for Person {
 
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
+        let [name, age] = s.split(",").collect::<Vec<String>>();
+
+        Person {
+            name: s.into(),
+            ..Person::default()
+        }
     }
 }
 
